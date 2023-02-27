@@ -1,0 +1,112 @@
+% !TeX root = ./thesis.tex
+% !TeX spellcheck = hu_HU
+% !TeX encoding = UTF-8
+% !TeX program = pdflatex
+%TODO Change language to en_GB (recommended) or en_US for English documents
+\documentclass[11pt,a4paper,oneside]{report}             % Egyoldalas (javasolt)
+%\documentclass[11pt,a4paper,twoside,openright]{report}  % Duplex
+
+\input{include/packages}
+
+
+%TODO Saját adataiddal töltsd ki a kommentek szerint
+%--------------------------------------------------------------------------------------
+\newcommand{\szerzoVezeteknev}{Gipsz}
+\newcommand{\szerzoKeresztnev}{Jakab}
+\newcommand{\szerzoNeptun}{NEPTUN}
+
+\newcommand{\szakirany}{} % Informatikusoknál nincs szakirány. Villamosmérnököknél: Automatizálás (\aut) vagy Infokommunikáció (\infokom).
+
+\newcommand{\konzulensAMegszolitas}{}
+\newcommand{\konzulensAVezeteknev}{Konzulens}
+\newcommand{\konzulensAKeresztnev}{Károly}
+\newcommand{\konzulensBMegszolitas}{}
+\newcommand{\konzulensBVezeteknev}{Konzulens}
+\newcommand{\konzulensBKeresztnev}{Kálmán}
+\newcommand{\konzulensCMegszolitas}{}
+\newcommand{\konzulensCVezeteknev}{}
+\newcommand{\konzulensCKeresztnev}{}
+
+\newcommand{\cim}{Dolgozat címe} % Cím
+\newcommand{\tanszek}{\szeit} % informatika (\szeit), automatizálási (\szeaut) vagy távközlési (\szetat)
+\newcommand{\doktipus}{\szakdolgozat} % Dokumentum típusa (\szakdolgozat, \diplomaterv vagy \dolgozat)
+\newcommand{\szak}{\infoBSc} % Mérnökinformatikus BSc (\infoMsc), MSc (\infoMsc), Gazdaságinformatikus BSc (\gazdInfoBsc), MSc (\gazdInfoMsc), vagy Villamosmérnöki BSc (\villBSc), MSc (\villMSc)
+
+\include{include/variables}
+%TODO Nyelv beállítása
+% Beállítások magyar nyelvű dolgozathoz
+\input{include/thesis-hu}
+% Settings for English documents
+%\input{include/thesis-en}
+
+
+\newcommand{\szerzoMeta}{\szerzoVezeteknev{} \szerzoKeresztnev} % egy szerző esetén TODO@FMA két szerző
+\input{include/preamble} % beállítások, nem kell vele foglalkoznod remélhetőleg, de ha valami latex hekkelésre vagy új parancsra van szükséged annak itt a helye
+
+
+%--------------------------------------------------------------------------------------
+% Itt kezdődik a dolgozat
+%--------------------------------------------------------------------------------------
+\begin{document}
+
+\selectthesislanguage
+
+% Külső borító, minta kötéshez - csak elektronikus leadás esetén eltávolítandó
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/outercover} 
+
+% Címoldal 
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/titlepage}
+
+%TODO Feladatkiíró lap helye, csak a nyomtatott verzijóba kerül az eredeti példány
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/project}
+
+% Nyilatkozat és Kivonat
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{include/declaration} % ez legenerálódik magától a fentebb megadott adatok alapján
+\include{content/abstract} %TODO ezt át kell írnod
+
+% Tartalomjegyzék
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\tableofcontents\vfill
+
+% A dolgozat lényegi része
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\pagenumbering{arabic}
+
+%TODO készítsd el a saját munkád
+\include{content/introduction}
+\include{content/thesis-format}
+\include{content/latex-tools}
+\include{content/template-usage}
+
+
+% Köszönetnyilvánítás - opcionális
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{content/acknowledgement}
+
+
+% Ábrák listája - a word-ös sablon szerint szükséges
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\listoffigures\addcontentsline{toc}{chapter}{\listfigurename}
+
+
+% Táblázatok listája - opcionális
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+%\listoftables\addcontentsline{toc}{chapter}{\listtablename}
+
+
+% Irodalomjegyzék
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{bib/mybib}
+
+
+% Függelékek
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\include{content/appendices}
+
+%\label{page:last}
+\end{document}

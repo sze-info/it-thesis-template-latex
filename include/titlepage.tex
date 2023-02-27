@@ -1,0 +1,33 @@
+\hypersetup{pageanchor=false}
+%--------------------------------------------------------------------------------------
+%	The title page
+%--------------------------------------------------------------------------------------
+\begin{titlepage}
+
+\ifthenelse{\equal{\tanszek}{\szeit}}{
+    \includegraphics[height=15mm,keepaspectratio]{figures/sze_logo_wide.pdf} 
+    \hfill
+    \includegraphics[height=15mm,keepaspectratio]{figures/dept_it_logo.png}
+}{
+    \includegraphics[width=110mm,keepaspectratio]{figures/sze_logo_wide.pdf}
+}
+
+\begin{center}
+
+\vspace{130pt} %because it's the top
+{\Huge \bfseries \MakeUppercase {\doktipus}}\\
+\vspace{80pt}
+{\huge \bfseries \cim}\\
+\vspace{80pt}
+{\huge \bfseries{\szerzo}}
+
+\vspace{80pt}
+\Large \textbf{\szak{}}\\
+\textbf{\szakirany}\\
+\vfill
+{\Large \textbf{\the\year}}
+
+\end{center}
+\end{titlepage}
+\hypersetup{pageanchor=false}
+
